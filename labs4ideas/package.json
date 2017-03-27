@@ -1,0 +1,11 @@
+{
+    "name": "JSON-Modifier",
+    "description": "Modificador de strings JSON",
+    "author": "Weryques Santos da Silva <weryques@outlook.com>",
+    "version": "0.0.0",
+    "private": true,
+    "dependencies": {
+        "express": "4.x",
+        "body-parser": "1.x",
+    }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Modificador de JSON">
+    	<meta name="author" content="Weryques Santos da Silva">
+        
+        <link rel="shortcut icon" href="assets/img/favicon.png">
+        <title>JSON Modifier | Labs4ideas</title>
+        
+        <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/animations.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="cloud floating">
+            <img src="assets/img/cloud.png" alt="labs4ideas">
+        </div>
+         <div class="cloud pos1 fliped floating">
+            <img src="assets/img/cloud.png" alt="labs4ideas">
+        </div>
+         <div class="cloud pos2 floating">
+            <img src="assets/img/cloud.png" alt="labs4ideas">
+        </div>
+         <div class="cloud pos3 fliped floating">
+            <img src="assets/img/cloud.png" alt="labs4ideas">
+        </div>
+        <div id="wrapper" style="height: 866px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <p>
+                            <span style="color:#ffffff;">
+                                <span style="font-size: 64px;">JSON Modifier</span>
+                            </span>
+                        </p>
+                        <form id="formA" method="post">
+                            <div class="form-group col-sm-12">
+                                <textarea required class="form-control col-sm-12" name="json" id="json" rows="5" placeholder="Digite ou cole uma string em formato JSON, exemplo: {'name': 'w', 'numero': 7}"></textarea>
+                            </div>
+                            <br/>
+                            <input class="btn btn-theme" type="submit" value="Modificar">
+                        </form>
+<!--
+                            <br/>
+                            <div class="form-group col-sm-12">
+                                <textarea class="form-control col-sm-12" name="result" id="result" rows="5" placeholder="Resultado"></textarea>
+                            </div>
+-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+</html>
