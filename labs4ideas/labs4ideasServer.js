@@ -64,5 +64,5 @@ app.post('/', function(request, response){
 
 l4ideasServer.listen(port, function(){
     console.log('Server is running');
-    console.log('Please access < localhost:3000/ >');
+    console.log("Please access < localhost:"+ port +"/ >");
 });
