@@ -3,6 +3,7 @@ var fs = require('fs');
 var url = require('url');
 var express = require('express');
 var bodyParser = require('body-parser');
+//var postResponse = require('./postResponse');
 app = express();
 
 app.use(express.static(__dirname + '/'));
@@ -14,8 +15,38 @@ app.use(bodyParser.urlencoded({
 var l4ideasServer = http.createServer(app);
 
 app.get('/', function(request, response){
-    response.sendFile(__dirname + '/index4ideas.html');
+     response.sendFile(__dirname + '/index4ideas.html');
 });
+
+function recursiveVerification(obj){
+    for(var key in obj){
+        if(typeof obj[key] === "string"){
+            obj[key] = (obj[key]+'-labs4ideas');
+        }
+        else if(typeof obj[key] === "number"){
+            obj[key] = (obj[key]+1);
+        }
+        else if(typeof obj[key] === "object"){
+            if(Object.keys(obj).length > 1){  
+                for(var i = 0; i < Object.keys(obj).length; i++){
+                    var obj2 = obj[i];
+                    if(typeof obj2 === "object"){
+                        for(var k in obj2){
+                            recursiveVerification(obj2[k]); 
+                        }
+                    }
+                    recursiveVerification(obj2);
+                }
+                break;
+            }
+            else{
+                recursiveVerification(obj[key]);
+            }
+        }
+    }
+    
+    return JSON.stringify(obj);
+}
 
 app.post('/', function(request, response){
     var strJSON = request.body.json;
@@ -23,19 +54,8 @@ app.post('/', function(request, response){
     
     console.log("before: "+ strJSON);
     
-    for(var key in obj){
-        var attrName = obj;
-        var attrValue = obj[key];
-        
-        if(typeof obj[key] === "string"){
-            obj[key] = (obj[key]+'-labs4ideas');
-        }
-        else{
-            obj[key] = (obj[key]+1);
-        }
-    } 
+    strJSON = recursiveVerification(obj);
     
-    strJSON = JSON.stringify(obj);
     console.log("after: "+ strJSON);
     
     response.send("<script type='text/javascript'> alert('"+ strJSON +"') </script>");

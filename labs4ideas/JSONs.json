@@ -1,0 +1,32 @@
+{
+	"dados1": 1,
+	"dados2": "a"
+}
+
+{
+	"dataset": [{
+		"dados1": 1,
+		"dados2": "a",
+		"dados3": -1
+	}, {
+		"dados4": "b",
+		"dados5": 2,
+		"dados6": 4.1
+	}]
+}
+
+{
+	"data": [{
+		"dados1": -1,
+		"subset": {
+			"dados2": "map",
+			"dados3": 41
+		}
+	}, {
+		"subset": {
+			"dados4": "tap",
+			"dados5": 2.3
+		},
+		"dados4": 91
+	}]
+}
