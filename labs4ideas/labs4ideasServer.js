@@ -3,7 +3,6 @@ var fs = require('fs');
 var url = require('url');
 var express = require('express');
 var bodyParser = require('body-parser');
-//var postResponse = require('./postResponse');
 app = express();
 
 app.use(express.static(__dirname + '/'));
@@ -12,6 +11,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+var port = 3000;
 var l4ideasServer = http.createServer(app);
 
 app.get('/', function(request, response){
@@ -58,11 +58,11 @@ app.post('/', function(request, response){
     
     console.log("after: "+ strJSON);
     
-    response.send("<script type='text/javascript'> alert('"+ strJSON +"') </script>");
+    response.send("<script type='text/javascript'> alert('"+ strJSON +"'); window.location.replace('http://localhost:"+ port +"'); </script>");
     response.end();
 });
 
-l4ideasServer.listen(3000, function(){
+l4ideasServer.listen(port, function(){
     console.log('Server is running');
     console.log('Please access < localhost:3000/ >');
 });
